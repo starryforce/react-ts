@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { observe } from './Game';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+observe((knightPosition: [number, number]) =>
+  ReactDOM.render(
+    <React.StrictMode>
+      <App knightPosition={knightPosition} />
+    </React.StrictMode>,
+    document.getElementById('root')
+  )
 );
 
 // If you want to start measuring performance in your app, pass a function
